@@ -1,0 +1,22 @@
+www.lingscars.com
+www.toyota.com
+
+
+DEMO NOTES
+www.figma.com
+
+
+demonstrate some of the tools
+
+Make an about me page
+	- Family
+	- Favorite place
+	- Favorite Movies
+	- Favorite games
+	- Portfolio
+	
+	
+Make a style guide
+	- coolors.co
+		- space bar changes the pallete
+		- you can lock the colors that you like

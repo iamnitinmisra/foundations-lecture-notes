@@ -1,0 +1,51 @@
+Before first day setup
+- Create Zoom Lecture Room
+- Feedback survey should come from Cameron in an email
+- Create cohort Status sheet - Share with Cameron
+- Create Day 1 Icebreaker Survey
+
+
+
+
+Stickies for Discord
+
+Foundations 7 - Lecture Room
+https://strategiced.zoom.us/j/94369865712
+
+Code of Conduct
+https://ed.devmountain.com/materials/resources/code-of-conduct/
+
+Link to Frodo
+https://ed.devmountain.com/?cohort=f7
+
+Lecture Recordings (Navigate to the F7 cohort tab)
+https://docs.google.com/spreadsheets/d/14ov0qE7Wcuv8iuyTtWYELyJg_3xhVVLEt0uW6Z01gPI/edit#gid=0
+
+Student Feedback Survey
+https://forms.gle/WAcbE43HxMKncfCAA
+
+
+
+Notes for the Orientation:
+
+- Require video cameras on as it helps with engagement and networking
+
+
+
+
+Notes for Lecture
+
+
+
+
+Notes on the Demo
+
+1. Day 1 Icebreaker - https://forms.gle/ibKAYvH8BDV5Awia8
+2. Demo Discord
+3. Demo Frodo
+	- Slides / Handout / Demo
+	- Exercises / Solutions
+	- Squads
+	- Resources
+	- Further Study (optional)
+4. End of Day checkins will be done in discord

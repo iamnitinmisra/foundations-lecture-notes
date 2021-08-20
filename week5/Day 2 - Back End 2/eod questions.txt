@@ -1,0 +1,38 @@
+let number = '7'
+
+Q. how do i turn the number variable into a string?
+A. number = +number
+
+Q. what does Array.findIndex() return if it is unable to find a match for the condition you specify?
+A. -1
+
+Q. How do i trigger a .catch()?
+A. status code of 400 or greater
+
+Q. What is a PUT request used for?
+A. Updating existing content or data
+
+Q. Can i use a POST request to update existing data?
+A. Yes, although it would not follow REST principles, and you should not do it
+
+Q. how do i define a parameter to my API endpoint?
+A. start with a colon, then the name of the parameter immediately following it in the endpoint
+
+Q. what is the call back function called thats located inside an request method?
+A. endpoint handler/method
+
+Q. why is it a good idea to place endpoint handler's inside of their own file?
+A. it makes debugging easier by modularizing your code, its better for organization, 
+
+Q. What does object destructering refer to?
+A. taking object properties and creating variables out of them
+
+Q. What does module.exports do?
+A. Only used in node, it exports its contents so that it can be used outside of the file it was used in
+
+Q. is it useful to send a body with a GET request?
+A. No, GET requests are used to retrieve data, sending data is not useful in this instance
+
+Q. whats a better way to send information to the backend in order to receive specific information?
+A. defining a parameter for the endpoint/ send the request with a parameter
+

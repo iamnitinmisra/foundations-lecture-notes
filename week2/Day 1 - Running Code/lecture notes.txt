@@ -1,0 +1,168 @@
+INTODUCTION TO CODING
+
+SYNTAX
+	- spoken languages have their own syntax (english/spanish)
+	
+COMMANDS
+	- ls
+	- cd: Change Directory
+	- pwd: Present Working Directory
+	- mv: Move
+	- touch: create
+	- cat: Concatinate - takes all the contents of the folder and prints them out
+	- mkdir: make Directory
+	
+CD WITH URLS
+	-  .. means parent directory
+	-  ~ tilda means home directory
+	
+MOVE FILES
+	- if your system doesnt have the folder you specified, MV will rename the folder to what you have specified
+ 
+CREATE NEW FILES
+	- must specifiy file extension, if not it will assume it is a txt file
+
+
+WHY GIT?
+	- every time you commit a file, GIT takes a snapshot of it
+	
+	
+
+
+DATATYPES
+- primitive
+- complex
+
+
+
+
+DEMO
+
+OPEN FILE EXPLORER IN WINDOWS
+
+ - pwd
+ - ls
+ - cd Desktop
+ - cd Devmountain
+ - cd Foundations
+ - mkdir rename-me
+ - cd rename-me
+ - touch codeIntro.js
+ - touch hello world.js => creates 2 files
+ - touch "hello world.js" => creates 1 file
+ - delete the hello world file from file explorer
+ 
+ 
+ - launch codeIntro.js in vscode using the command line
+ - insert a comment into the code and save it => "// this is a comment"
+ - cat codeIntro.js
+ 
+ - clear
+ 
+ - cd ~
+ - cd Desktop/Devmountain/Foundations
+ - mv rename-me code-intro
+ - mv code-intro Lectures
+ 
+ - git init
+ - git status
+ - git add . => the . means everything 'here'
+ - git commit -m "initial commit"
+ - git status
+ 
+ - create a github repo specific for this lecture called 'code-intro'
+ - make sure youre in the code-intro folder
+ - code .
+ 
+ 
+ 
+ SNAKE CASE
+ const first_name = 'Nitin' //someday
+ 
+ CAMEL CASE
+ const firstName 
+ 
+ UPPER CAMEL CASE
+ const FirstName
+ const lastName = 'Misra'
+ let age = 37
+ 
+ node code-intro (in terminal) 
+ 
+ console.log(firstName)
+ 
+ firstName = "Nitin"
+ 
+ node code-intro (in terminal) now it displays my name
+ 
+ let height (leave undefined
+ console.log(height)
+ 
+ node code-intro
+ 
+ let weight = null
+ console.log(weight)
+ 
+ node code-intro
+ 
+ 
+ 
+ 
+ //NUMBERS
+ let x = 4
+ let y = 10
+ let z = 7 + 8
+
+what do these console.log to?
+
+ let sum = x + y + z
+ console.log(sum)
+ 
+ 
+ 
+//STRINGS
+let str1 = 'String1'
+let str2 = "String2"
+let str3 = `String3`
+
+demonstrate using an apostrophe (eg. "Nitin's Computer
+
+console.log(`Hello my name is ${firstName}`)
+
+let concat = firstName + lastName
+
+console.log(concat)
+
+let concat = firstName + " " + lastName
+
+console.log(concat)
+
+JavaScript runs top down
+
+
+
+
+//READLINE (library) TAKE NOTES ON THIS SHIT
+
+const readline = require('readline')
+
+const reader = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout
+})
+
+reader.question("What is your name? ", function(answer) {
+	console.log(`Hi, ${answer}`)
+})
+
+run node
+
+
+reader.question("Enter a number to check if it is even or odd: ", function(number) {
+	console.log(number)
+})
+
+run node
+
+change the logic to check for even or odd using an if statement
+ 

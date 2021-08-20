@@ -1,0 +1,307 @@
+
+
+1. Create a new github repository
+	- F3-circleci
+	- Add a README
+	
+2. Go to circleci.com/signup
+	- sign up with your github account
+	
+3. in the projects section, click the Set up Project button for the repo you just created
+
+4. click the radio button for "Write your own using our starter config.yml template" and click Let's go
+
+5. select the project that says helloworld
+
+6. you should come to a screen that says "Config.yml is valid and ready to commit" in green at the bottom of the page
+	
+	Version: 2.1 is the version of circlci that we are currently using
+	
+	Orbs: are like packages, they are our dependencies
+		
+		welcome: the welcome orb is just a file that was created for us because we selected the helloworld example program
+		
+	Workflows: automates the jobs, the config.yml (this file) tells it exactly what to run
+		
+		welcome: this is the name of the workflow
+		
+			jobs: tells it what to run. welcome/run is included in the example orb we selected. later on we will tell it to run our tests
+			
+7. push the commit and run button
+
+8. if everything worked automaticaclly, you should see a Compare & Pull request button in your github repo
+	- if you did this manually then you might already be on your main branch and you dont need to do this step
+	
+9. merge the branch, walk through what is happening
+
+10. go back to circleci and click on the green success button
+
+11. click on welcome/run
+
+	you can see that the welcome/run orb that we had used are now present, just like express we are just using what was given to us, we didnt have to write this code, it was a template
+	
+12. click the spin up environment button > then run through the rest of them
+
+
+13. we are going to edit our config.yml file now. if you already cloned your repo, you should be good to go. for those of you that didnt, youll want to clone it into a location that youll remember
+
+14. so lets use the node orb now, we will update the yml config file in your vscode, note that the tabbing here is important
+
+	version: 2.1
+
+	orbs:
+	  node: cicleci/node@1.1
+
+	jobs:
+	  build:
+		executor:
+		  name: node/default
+		  tag: "10.4"
+		steps:
+		  - checkout
+		  - node/with-cache:
+			steps:
+			  - run: npm install
+		  - run: npm run test
+		  
+		  
+15. we should see the build failed error now, thats ok. explain that its because we gave circleci instructions to install packages, but our repo doesnt have a package.json file. so you want to be sure when youre configuring circleci that you are thinking critically about what it should be doing and whether it will actually be able to do that
+
+16. we'll try a more complicated example next. paste this code into discord
+
+version: 2
+jobs: # we now have TWO jobs, so that a workflow can coordinate them!
+  one: # This is our first job.
+	docker: # it uses the docker executor
+	  - image: circleci/ruby:2.4.1 # specifically, a docker image with ruby 2.4.1
+		auth:
+		  username: mydockerhub-user
+		  password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+	# Steps are a list of commands to run inside the docker container above.
+	steps:
+	  - checkout # this pulls code down from GitHub
+	  - run: echo "A first hello" # This prints "A first hello" to stdout.
+	  - run: sleep 25 # a command telling the job to "sleep" for 25 seconds.
+  two: # This is our second job.
+	docker: # it runs inside a docker image, the same as above.
+	  - image: circleci/ruby:2.4.1
+		auth:
+		  username: mydockerhub-user
+		  password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+	steps:
+	  - checkout
+	  - run: echo "A more familiar hi" # We run a similar echo command to above.
+	  - run: sleep 15 # and then sleep for 15 seconds.
+# Under the workflows: map, we can coordinate our two jobs, defined above.
+workflows:
+  version: 2
+  one_and_two: # this is the name of our workflow
+	jobs: # and here we list the jobs we are going to run.
+	  - one
+	  - two
+	  
+
+17. go back to the circleci webpage and show that it should now be checking and following the steps that we laid out in the yml file
+	  
+------------------------------------------------------------------------------------------------------------------------------------------
+
+We'll move onto github and practicing branching and stuff as a group, but first we'll just practice branching on an individual repo	  
+
+1. everyone create their own repo, call it something along the lines of individual-branch-practice
+
+2. launch vscode from a folder thats called the same as your repo and create an index.js file
+
+3. type
+	! (hit tab)
+	
+	<title>Branch Practice</title>
+	 
+	<body><h1>Branch</h1></body>
+		
+4. from terminal in the root of your project directory
+
+	git init
+	git add .
+	git commit -m "initial commit"
+	git remote add origin https://github.com/iamnitinmisra/individual-branch-practice.git
+	git branch -M main
+	git push -u origin main
+
+
+5. explain why we branch again
+
+6. git checkout -b styles/main-styling
+
+7. notice that it created the branch and it automatically moved us into it. index.html remains the same because the branch didnt exist before so it made an exact copy of the branch that we branched off from
+
+8. create a new file called styles.css
+
+	h1 {
+		color: red;
+	}
+	
+	in index.html
+	
+	<link rel="stylesheet" href="styles.css" />
+
+
+
+9. dont push just yet, just commit
+
+	git add .
+	git commit -m "added styling"
+
+
+
+10. switch back to main and show the differences
+
+
+
+11. switch back to styles/main-styling
+
+	git branch styles/main-styling
+
+
+12. push it up to github, you should see an error. this error happened because we did not setup an upstream for the branch we just created
+
+	
+
+13. go back to github and show that same green button to Compare & Pull request. create the pull request and complete it
+
+14. go back to vscode 
+
+	git checkout main
+	
+	git status
+	
+15. you should see that it says Your branch is up to date with 'origin/main', nothing to commit, working tree clean. but we know thats not true
+so we can tell vscode to update its git status by using this command
+
+	git fetch
+	
+	now type in git status again
+	
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+1. go to the group-branch-practice folder on your local machine and open vscode
+
+2. in github, pick Zenith to help you collaborate
+
+3. in github, add Zenith as a collaborator
+
+	settings > manage access > invite collaborator
+	
+	
+4. Zenith will get an email from github and he will need to accept the collaboration invite
+
+5. Zenith, go ahead and clone the repository to your system and launch vscode inside the project folder
+	
+	git clone <url>
+	Wait for him to finish
+
+5. everyone else should fork the repository
+
+
+6. Zenith, add an <p> tag and add your name to it, then push it up github
+
+7. everyone else, create a new file called <your-name>.js and console.log a string with your name
+
+8. once Zenith is done, show that his changes were made to the local branch
+
+	in my vscode, run
+		git status
+		
+		git fetch
+		
+		git pull
+		
+		
+9. show that it is now up to date
+
+10. underneath Zenith's name
+
+	<p> Nitin Misra </p>
+	
+
+11. Tell zenith to create a <p> with Devmountain in it and push his changes to github
+
+
+12. after he does that, verify it in github and view his changes
+
+
+13. now push my local changes and view the error. explain the importance of branching especially when youre collaborating
+
+
+14. if this happens to you, create a new branch, not override any changes. your team might kill you
+	
+	git checkout -b nitin
+	git push -u origin nitin
+	
+16. view the pull request has a merge conflict. finish creating the pull request anyway
+
+
+17. click the resolve conflicts button and resolve them directly in github
+
+18.	go back to the main branch
+	
+	git checkout main
+	git pull
+	
+19. for the rest of you that forked the repo, you can go to the pull requests tab in github and create a new pull request
+
+this is how you will end up collaborating on some open source projects
+
+(tell them to finish creating the pull request and show them what it looks like for the owner of the repo)
+
+
+20. merge any of the pull requests that have been created
+
+21. show that they are now in github, add it to my local repository
+
+	git pull
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

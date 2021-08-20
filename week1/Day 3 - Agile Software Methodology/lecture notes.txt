@@ -1,0 +1,108 @@
+Agile Software Methodology
+
+	- Various Software Methodologies we have covered already
+		- Waterfall
+		- Agile
+		- Feature Driven Development
+		- Lean
+		- RAD (Rapid Application Development)
+		
+	SLIDES::
+	
+	THE AGILE MANIFESTO
+	- Individuals and interactions: focuses on the team and caters to their strengths (AKA Collaboration)
+	
+	
+	
+	AGILE PRINCIPLES
+	- Deliver Frequently: SPRINTS (1-2 weeks) where you work on a specific portion of the app
+	
+	
+	
+	AGILE ACTIVITIES
+	- Planning Poker: Everyone looks at a feature and suggests how long it will take for that feature to be completed
+					Then the outliers are evaluated to see why they thought it would be very short or very long
+					The discussion ensues, and when it is over, they vote again.
+					this keeps happening until either everyone settles on a time frame that they think is suitable, or if no progress is being made
+					
+	MAKE "USER STORIES"
+	- very similar to user persona, gives you a tangible example of what a feature might look like rather than a person
+	
+	
+	ANATOMY OF A USER STORY
+	- As a <Spotify User>, I want to <be able to find local bands> so that <i can support them>
+	
+	
+	PLANNING POKER
+	- After page is fully loaded
+
+
+
+
+	DEMO
+	- Take 5 minutes to draw an elephant 
+		- share what they have drawn
+	- Now take 1 minute to draw the outline of a lion (front facing)
+		- share what they have drawn so far
+	- Now spend about a 1 filling in some detail on the lions face (whiskers, mane, etc.)
+	- Now draw two more lionesses, because they always travel in a pack
+		- Now lets see the drawings again
+	
+	5 minute elephant had all sorts of different ideas on what that should look like
+	
+	vs 
+	
+	1 minute sprints, we all basically had the same image
+	
+	
+	
+	
+	
+	NEXT PART:
+	
+	PLANNING POKER
+	
+	Question: How long will it take to make breakfast consisting of Eggs, Bacon, Waffles, Orange Juice
+	
+	in chat vote for how long you think this will take to prepare, dont worry about your reasoning for now
+	
+	talk about the outliers, why did you pick the time you picked?
+	
+	
+	Question: How long will it take to paint a two story house
+	
+	
+	show that its better to be upfront about how long it will take
+	
+	the point here is to get as an accurate estimate on time its going to take to complete a task
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

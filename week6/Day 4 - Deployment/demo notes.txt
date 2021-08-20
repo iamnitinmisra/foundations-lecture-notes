@@ -1,0 +1,3 @@
+demo notes for deployment lecture
+
+https://expressjs.com/en/starter/static-files.html

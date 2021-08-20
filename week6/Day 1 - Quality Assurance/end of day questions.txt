@@ -1,0 +1,22 @@
+Why is QA important?
+	Saves money
+	increases confidence
+	smoother releases
+
+What is a test plan?
+	a collection of test cases
+	
+what is a test case?
+	a step by step process in order to test a specific aspect of your product
+	
+what is a bug report?
+	a report that lists all of the failures that were found in each test case
+	
+what should be included in a bug report?
+	description of the issue, steps to reproduce the issue, what the bug was, including platform that was tested on, date, product version that was tested
+	
+how do you determine the risk of a specific bug?
+	cost * liklihood to occur = risk
+	
+why is documentation important?
+	it helps us keep track of issues 

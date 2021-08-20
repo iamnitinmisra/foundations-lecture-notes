@@ -1,0 +1,30 @@
+https://www.dbdesigner.net/
+
+Instruction for interactive lecture IN PAINT
+
+
+Book Club
+
+-  users should be able to
+	- sign in w/ email + password
+	- follow each other
+	- create reviews/discussions on specific books
+	- give a rating out of 5 stars
+	- comment on reviews
+	- follow genres
+	- follow authors
+	- find a book title
+	
+	
+	
+	
+	
+
+
+
+
+
+
+	
+	
+

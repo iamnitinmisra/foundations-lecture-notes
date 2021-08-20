@@ -1,0 +1,83 @@
+What is the purpose of a function
+	To be able to reuse blocks of code over and over again without having to re-write it
+
+whats the difference betwee return and console.log?
+	return will allow you to use the function to evaluate something later on. it allows you to store what the function 	evaluates to a variable
+
+	console.log just prints to the console and doesnt do anything else. 
+
+when writing a function whats the name of the item that gets placed in between the paranthesis?
+	parameter
+
+
+what does invoking a function refer to?
+	running the function
+
+
+what are the four parts to a function
+	the function keyword
+	the name of the function
+	the function parameters
+	the body of the function /block of code
+
+---------------------------------------------------------------
+
+function printName(name) {
+  console.log(name)
+}
+
+let answer = doSomethingElse('Riley')
+
+what would i expect to see if i console.log(answer)?
+	undefined
+
+
+how can we change the above function so that the console.log(answer) prints the name that was passed in?
+	change console.log(name) to 'return name'
+
+
+--------------------------------------------------------------
+
+let age = 21
+
+	function printAge(age){
+	  console.log(age)
+	}
+
+printAge()
+
+what should we expect to see printed in the console after running the above function
+	undefined
+
+
+why?
+
+because the age parameter of the function overrode the declared age variable and nothing was passed in when we invoked the function
+
+
+2 ways to fix it, what are they?
+	1. remove the age parameter
+	2. pass in age when you invoked the function
+
+
+
+--------------------------------------------------------------
+
+
+let age = 21
+
+function doSomething(){
+   let alphbet = abc
+   console.log(age)
+}
+
+console.log(alphabet)
+
+
+What can i expect to see in the console for the console.log(age)
+	21
+what can i expect to see in the console for the console.log(alphabet)
+	undefined
+
+
+-----------------------------------------------------------

@@ -1,0 +1,119 @@
+Traceablility is why you are writing code that does something throughout an app
+	- writing a test that has a button that pops when you push it, actually writing that button that pops, using that scheme throughout the app
+	
+Logs- show them pm2 on the server that im hosting iamnitinmisra.com
+
+
+
+
+
+
+-----------------------------------DEMO------------------------------------------------
+
+1. go to your devmountain folder that you are saving projects to, wherever that may be for you
+
+2. give them the link to the repo https://github.com/iamnitinmisra/student-list
+
+3. fork/clone the repo
+
+4. go to rollbar.com and sign up with github
+	
+	select node if theres an option for it
+
+5. inside of server.js, at the top
+	
+	// require rollbar below
+	const Rollbar = require('rollbar')
+	
+	// create the Rollbar class below
+	let rollbar = new Rollbar({
+		accessToken: ''
+	})
+	
+6. inside the rollbar website go to settings > Create a new access token
+
+7. copy the token that was created into the key from the object in step 18
+
+	// create the Rollbar class below
+	let rollbar = new Rollbar({
+		accessToken: '',
+		captureUncaught: true,
+		captureUnhandledRejections: true
+	})
+	
+	const app = express()
+	
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '/public/index.html'))
+		
+		//send rollbar some info
+		rollbar.info('html file served successfully')
+	})
+	
+	const port = process.env.PORT || 4545
+	
+	app.listen(port, () => console.log(`server running on port ${port}`)
+	
+
+8. in heroku, create a new app
+
+9. deploy the app
+
+10. push the code up to github
+
+11. enable automatic deploys in heroku and deploy the branch
+
+12. go back to the rollbar website and click items in the menu on the left
+
+13. check all the checkboxes under levels
+
+14. click the link to go into the dashboard for the app that was just deployed
+
+15. navigate through rollbar website and show the different options for monitoring on the app
+
+	- show that you can reassign different aspects to different users that may be on your team
+	
+16. back in the server.js file, 
+
+	- we can send rollbar anything that we want, including a strings and objects
+
+	app.post('/api/student', (req, res)=>{
+		const { name } = req.body;
+		name = name.trim();
+		studentList.push(name);
+		// add rollbar log here
+		rollbar.log('student added successfully', {author: 'nitin', type: 'manual'})
+
+		res.status(200).send(studentList);
+	})
+	
+17. where it says //add rollbar errorHandler middleware here, add the line below:
+
+	app.use(rollbar.errorHandler())	
+
+
+18. push your code to github and deploy the app
+
+
+19. go view rollbar's dashboard for the app
+
+20. in the if/else on the server.js file
+	
+	if (index === -1 && name !== "") {
+		studentList.push(name)
+		
+		// add a rollbar log here
+		rollbar.log('student added successfully', {author: 'nitin', type: 'manual'}
+		
+		res.status(200).send(studentList)
+	} else if (name === '') {
+		// add a rollbar error here
+		rollbar.error('no name given')
+		
+		res.status(400).send({error: 'must provide a name'})
+	} else {
+	
+		//add a rollbar error here too
+		rollbar.error('student already exists')
+		res.status(400).send({error: 'that student already exists'})
+	}

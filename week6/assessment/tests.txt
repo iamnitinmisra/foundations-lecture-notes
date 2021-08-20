@@ -1,0 +1,137 @@
+To Do:
+
+	Tic Tac Toe - Test Plan
+		**Overview**
+			Test plan for the desired functionality of the Tic-Tac-Toe game
+			
+		**Test Criteria**
+			- The page should load with 3 rows of 3 boxes in each row, and a start button
+			- Start button should start the game
+				- Clicking a box should add an Xs
+			- The computer should automatically place an O in an empty box after your turn
+			- X's and O's should all be the same size
+			- The game should end if 3 X's or O's have been placed horizontally, vertically or diagonally
+			- The game should end if all boxes have been occupied
+			
+		**Entry Criteria**
+			- Test Criteria
+			- The application
+			- Computer with internet browser and internet connection
+			
+			
+	Test Case: The page loads correctly
+		The page should load with 3 rows of 3 boxes each and a button to start the game
+		
+		**Steps**
+		1. Navigate to the application
+		2. View whether page loaded with 3 rows of 3 boxes in each row
+		3. View that start button loaded
+		
+		
+		**Test postconditions**
+		- We should see 9 boxes total, 3 rows with 3 boxes each
+		- Start button should load
+		
+		
+		
+	Test Case: The start button should start the game
+		Clicking the start button should allow you to place an X in any of the open boxes
+		
+		**Steps**
+		1. Clicking a box before pushing the start button should not place a marker
+		2. Click the start buttono
+		3. Clicking a box after pushing the start button should place an X marker
+		
+		**Test postconditions**
+		- Cant place a marker before starting the game
+		- Place an X after starting the game
+
+
+	Test Case: Computer's turn
+		After placing your marker, the computer should make a move with an 'O'
+		
+		**Steps**
+		1. Start the game if its not already started
+		2. Click a square
+		3. If there is an open space, computer should place an 'O'
+		
+		**Test postconditions**
+		- Computer places an O after user's turn if there is an open spot
+		
+		
+	Test Case: Game ends 
+		The game should end if 3 X's or 3 O's have been placed horizontally, vertically, or diagonally OR there are no open boxes left.
+		A message should appear indicating the result
+		
+		**Steps**
+		1. Play the game
+		
+		**Test Postconditions**
+		- Game ends with 3 of the same marker vertically
+		- Game ends with 3 of the same marker horizontally
+		- Game ends with 3 of the same marker diagonally
+		- Message appears with the result of the match indicating the correct winner, or its a tie
+		
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+test('clicking upper left square adds an X to the box', async ()=>{
+    const upperLeftBox = await driver.findElement(By.id('cell-0'));
+    upperLeftBox.click()
+
+    expect(await upperLeftBox.getText()).toEqual('X')
+
+    await driver.sleep(2000)
+}) 
+
+
+
+test('clicking upper right square adds an X to the box', async () => {
+    // refresh the browser to start a new game
+    driver.navigate().refresh()
+    await driver.sleep(2000)
+
+    // start the game 
+    let button = await (await driver).findElement(By.id('start-game'));
+    await button.click();
+
+    const upperRightBox = await driver.findElement(By.id('cell-2'))
+    upperRightBox.click()
+
+    expect(await upperRightBox.getText()).toEqual('X')
+    await driver.sleep(2000)
+})
+
+
+
+test('clicking lower right square adds an X to the box', async () => {
+    // refresh the browser to start a new game
+    driver.navigate().refresh()
+    await driver.sleep(2000)
+
+    // start the game 
+    let button = await (await driver).findElement(By.id('start-game'));
+    await button.click();
+
+    const lowerRightBox = await driver.findElement(By.id('cell-8'))
+    lowerRightBox.click()
+
+    expect(await lowerRightBox.getText()).toEqual('X')
+    await driver.sleep(2000)
+})
+
+
+
+test('computer takes turn after my first turn', async ()=>{
+    const computerTurn = await driver.findElements(By.xpath('//td[text()="O"]'))
+    let computerMoved = false;
+    // console.log(computerTurn)
+
+    if (computerTurn.length){
+        computerMoved = true;
+    }
+    
+    expect(computerMoved).toBeTruthy()
+})
+

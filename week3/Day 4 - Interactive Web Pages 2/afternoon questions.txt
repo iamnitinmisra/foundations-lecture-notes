@@ -1,0 +1,52 @@
+app.get('http://www.devmountain.com/instructors/:instructor', (req, res) => {
+	console.log(req.params)
+	res.status(200).send(req.params)
+})
+
+Q. in the code above, what is my parameter called?
+A. instructor
+
+
+	app.get('http://www.devmountain.com/instructors/', (req, res) => {
+		if (req.query.location === 'arizona') {
+			res.status(200).send('dang its hot there)'
+		} else if (req.query.state === 'florida') {
+			res.status(200).send('dang its humid there')
+		} else if (req.query.zip === 99501) {
+			res.status(200).send('dang its cold there')
+		} else {
+			res.status(200).send('arizona, alaska, or florida was not selected')
+		}
+	} 
+
+	Q. in the code above, how should information be sent to the backend? body, query or parameter?
+	A. query
+
+	Q. what key value pair would make this function send a message 'dang its humid there'
+	A. {state: 'florida'}
+
+Q. How do we handle a rejected promise?
+A. .catch()
+
+Q. What is a promise?
+A. an object that we are expecting from a response
+
+Q. What are the 3 possible statuses of a promise?
+A. resolved, rejected, pending
+
+Q. What are the two axios methods that we have covered so far in class?
+A. GET, POST
+
+Q. What is the POST axios method used for?
+A. Creating data
+
+Q. What are the two axios methods that we have not yet covered in class so far?
+A. PUT, DELETE
+
+Q. Whats the command we would use to install the axios library in our application?
+A. npm i axios
+
+Q. What file holds information about our app's dependencies?
+A. package.json
+
+

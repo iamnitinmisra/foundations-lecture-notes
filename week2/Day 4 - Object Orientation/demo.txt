@@ -1,0 +1,113 @@
+https://replit.com/@iamnitinmisra/f7-oo-demo#index.js
+
+
+// Create an object called person with firstName, lastName, and age properties
+let person = {
+  firstName: "Chandler", 
+  lastName: "Bing", 
+  age: 34
+}
+
+//console.log the firstname using dot notation
+
+//console.log the lastname using bracket notation
+
+//console.log the datatype of the persons age
+
+console.log(person.firstName)
+
+console.log(person['firstName'])
+
+console.log(typeof person.age)
+
+// using a for/in loop, loop through the person object
+for (let key in person) {
+  // console.log each key in the person object
+  console.log(key)
+
+  // console.log the value of each key
+  console.log(person[key])
+
+  // console.log the type of each key and console.log the value for each key 
+  console.log(typeof person[key])
+
+  // why cant we use dot notation inside a for/in loop?
+
+  //this won't work inside of a for in loop becuase prop evaluates to a string
+  // console.log(person.prop)
+
+  //which looks like this, and won't work
+  // console.log(person.'firstName')
+  // console.log(person.'lastName')
+  // console.log(person.'age')
+}
+
+// add a job property to person and give it a value of "Statistical Analysis and Data Reconfiguration"
+person['job'] = "Statistical Analysis and Data Reconfiguration"
+
+// add a favoriteAnimals property to the person object and give it a value of an array with at least 2 of your of your favorite animals
+person.favoriteAnimals = ["Chicken", "Duck"]
+
+//we can reassign values using dot or bracket notation
+
+// reassign the value of the persons age using dot notation and bracket notation
+person.age = 35
+person['age'] = 35
+// person.age += 1
+// person.age++
+
+// console.log(person)
+
+//we can access nested values using a combination of dot and backet notation
+// get the 1st value of the person's favorite animal
+console.log(person.favoriteAnimals[1])
+
+let me = {
+  name: 'Riley', 
+  job: 'Instructor', 
+  height: 72,
+  greeter: function() {
+    console.log(`Hi, my name is ${this.name} and I am an ${this.job}.`)
+  }
+}
+
+
+// invoke the greeter method inside of the me object
+me.greeter()
+
+//delete the height property from the me object using the keyword delete
+delete me.height
+
+
+class Dog {
+  constructor(name, breed, num) {
+    this.name = name
+    this.breed = breed
+    this.age = num
+  }
+
+  bark() {
+    console.log(`Woof, my name is ${this.name}`)
+  }
+}
+
+// create a new object called lassie from the Dog class above. Lassie was a Collie that lived to be 18 years old
+
+let lassie = new Dog('Lassie', 'Collie', 18)
+
+
+// make lassie bark
+lassie.bark()
+
+
+// create a new object called beethoven from the Dog class. Beethoven was a St. Bernard that lived for 12 years
+let beethoven = new Dog('Beethoven', 'St. Bernard', 12)
+
+// console.log(beethoven)
+
+// loop through the beethoven object and console.log the value for each key. what did you notice?
+for (let key in beethoven) {
+  console.log(beethoven[key])
+}
+
+// beethoven didnt bark

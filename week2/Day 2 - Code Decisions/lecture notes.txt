@@ -1,0 +1,34 @@
+Week 2 Code Decisions
+
+SLIDES
+
+- What are arrays?
+	- Typesafe languages
+		- Java
+		- Python
+		- Typescript
+	
+	- Loose languages
+		- Javascript
+		
+
+
+- Accessing values in an Array
+	- using variables instead of hard coding data is called coding dynamically
+
+
+
+- Editing Arrays
+	- push: add an item to the end of an arrays
+	- pop: remove an item from the end of an array
+	- shift: add an item to the beginning of an array
+	- unshift: remove an item from the beginning of an array
+	
+	- slice: makes a copy of the array
+	- splice: can do all of the above
+
+	- length: is not invoked
+
+
+Pair Programming
+

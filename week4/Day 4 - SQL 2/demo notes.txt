@@ -1,0 +1,279 @@
+postgres.devmountain.com
+
+create table eras (
+    era_id serial primary key, 
+    name varchar(75)
+);
+
+create table artists (
+    artist_id serial primary key, 
+    name varchar(100), 
+    era_id integer references eras(era_id)
+);
+
+create table artworks (
+    artwork_id serial primary key, 
+    name varchar(250), 
+    year integer, 
+    artist_id integer references artists(artist_id)
+);
+
+insert into eras (name) 
+values ('Italian Renaissance'), 
+('Realism'), 
+('Impressionism'), 
+('Cubism'), 
+('Pop Art');
+
+insert into artists (name, era_id) 
+values ('da Vinci', 1),
+('Michelangelo', 1), 
+('Raphael', 1), 
+('Donatello', 1), 
+('Millet', 2), 
+('Whistler', 2), 
+('Monet', 3), 
+('Renoir', 3), 
+('Cassatt', 3), 
+('Picasso', 4), 
+('Braque', 4), 
+('Gleizes', 4), 
+('Warhol', 5), 
+('Lichtenstein', 5);
+
+insert into artworks (name, year, artist_id) 
+values ('Lady with an Ermine', 1490, 11),
+('Mona Lisa', 1504, 1),
+('The Last Supper', 1498, 1),
+('Statue of David', 1504, 2),
+('Sistine Chapel Ceiling', 1512, 2),
+('The Schools of Athens', 1512, 3),
+('Saint George and the Dragn', 1505, 3),
+('The Fire in the Borgo', 1514, 3),
+('Statue of St. George', 1415, 4),
+('The Gleaners', 1857, 5),
+('The Sower', 1850, 5),
+('The Sheepfold', 1860, 5),
+('Nocturne: Black and Gold - Old Battersea Bridge', 1875, 6),
+('Impression, Sunrise', 1874, 7),
+('Water Lillies', 1919, 7),
+('The Studio Boat', 1876, 7),
+('The Swing', 1876, 8),
+('Tea', 1881, 9),
+('Summertime', 1894, 9),
+('Lilacs in a Window', 1879, 9),
+('Young Mother Sewing', 1900, 9),
+('Woman with Mustard Pot', 1910, 10),
+('Girl with a Mandolin', 1910, 10),
+('The Poet', 1911, 10),
+('Fruit Dish', 1908, 11),
+('Man on a Balcony', 1912, 12),
+('Football Players', 1913, 12),
+('Campbells Soup', 1968, 13),
+('Whaam!', 1963, 14),
+('Girl in Mirror', 1964, 14),
+('Masterpiece', 4962, 14),
+('Look Mickey', 1961, 14);
+
+
+1. Show them 
+
+	select * from eras;
+	select * from artists;
+	select * from artworks; (keep this for 1 - 4)
+	
+2. now lets select a specific artist_id
+
+	select * from artists
+	where artist_id = 11;
+	
+3. the artwork lady with an ermine has the incorrect artist_id we will need to update it, but we dont know the id for the artwork so we will use a subquery
+
+	update artworks
+	set artist_id = 1
+	where artwork_id in (
+		select artwork_id from artworks 
+		where name = 'Lady with an Ermine'
+	);
+	
+4. Saint George and the Dragn is also wrong, but we dont need a subquery for it this time
+
+	update artworks
+	set name = 'Saint George and the Dragon'
+	where artwork_id = 7
+	
+	
+5. show what happens if you dont use a where clause in step 4
+
+	comment out the where clause
+	
+	reset your data (refresh browser)
+	
+	rerun queries in step 3 & 4
+	
+
+6. Artwork 'Masterpiece' has the wrong year
+
+	give them a minute to figure this one out on their own
+	
+	update artworks
+	set year = 1962
+	where artwork_id = 31;
+	
+	
+7. explain what crud is
+	Create/Post
+	Read/Get
+	Update/Put
+	Delete/Delete
+	
+
+8. Next we will look at join statements
+
+	select * from artists
+	join eras on artists.era_id = eras.era_id;
+	
+	
+9. lets change that query to remove the repetition
+	
+	select artists.name, eras.name from artists
+	join eras on artists.era_id = eras.era_id;
+	
+	
+10. show that it doesnt matter which table youre selecting from first, only the columns order changed on the query result
+	
+	select * from eras
+	join artists on eras.era_id = artists.era_id;
+	
+
+11. run the query
+
+	select artists.name, eras.name from artists 
+	join eras  on artists.era_id = eras.era_id;
+	
+	show that the column names are both the same, so we can change that using aliasing
+	
+	select artists.name  artist, eras.name as era
+	from artists 
+	join eras  on artists.era_id = eras.era_id;
+
+
+12. we can also alias the table names
+	
+	select a.name artist, e.name as era
+	from artists a
+	join eras e on a.era_id = e.era_id;
+	
+	explain that because we used an alias on the table name, we have to change the alias everywhere the table name is used
+	
+	
+13. next lets get info about artworks and the artists that created them
+
+	select artwork.name as artwork, artwork.year, artists.name as artist
+	from artworks
+	join artists on artworks.artist_id = artist.artist_id;
+	
+	or with aliasing
+	
+	select aw.name as artwork, aw.year, a.name as artist
+	from artworks aw
+	join artists a on aw.artist_id = a.artist_id;
+	
+
+14. next lets get all the artwork created after 1600 and order them chronologically
+	
+	select aw.name, aw.year, a.name
+	from artworks aw
+	join artists a on aw.artists_id = a.artist_id
+	where aw.year > 1600
+	order by aw.year;
+	
+15. we can join more than 2 tables together at a time, so lets get the artists table, artworks table, and eras table
+	first we will have to join artworks to artists because eras doesnt have a foreign key to artworks
+
+	select artworks.name, artworks.year, artists.name, eras.name
+	from artworks
+	join artists on artworks.artist_id = artists.artist_id
+	join eras on artists.era_id = eras.era_id;
+	
+
+16. again, we have 3 columns called name 
+
+	select artworks.name as piece, artworks.year, artists.name as artist, eras.name as era
+	from artworks
+	join artists on artworks.artist_id = artists.artist_id
+	join eras on artists.era_id = eras.era_id;
+	
+	
+17. the last query was kind of long and we may want to use it over and over again, so lets create a view out of it
+
+	create view all_artworks as 
+	select artworks.name as piece, artworks.year, artists.name as artist, eras.name as era
+	from artworks
+	join artists on artworks.artist_id = artists.artist_id
+	join eras on artists.era_id = eras.era_id;
+	
+
+18. now we can use a select statement to get all_artworks
+
+	select * from all_artworks
+	
+	
+19. views work the same as tables, so we can use additional clauses in our queries to find something specific
+	lets get all artworks whos name starts with the letter 's'
+	
+	ask the class to help
+
+	select * from all_artworks
+	where piece like 'S%'
+	
+
+20. subqueries again: lets find all the artists that were part of the Cubism movement
+
+	select * from artists
+	
+	we dont know the actual name of the eras so we will use a subquery to find that out first
+	
+	select * from artists
+	where era_id in (
+		select era_id from eras where name = 'Cubism'
+	);
+	
+	
+21. question for you guys: using a subquery, get all artwork names and years where the artists name begins with the letter M
+
+	select name, year
+	from artworks
+	where artist_id in (
+		select artist_id from artists where name like 'M%'
+	);
+
+
+22. lets try deleting things now (this should result in an error)
+
+	delete from artists
+	where artist_id = 10;
+	
+	
+23. the artworks table relies on the artists table, so lets delete something there
+
+	delete from artworks
+	where year > 1899;
+	
+
+24. lets delete all of the artwork that belongs to an era that begins with the letter "I"
+		we will need first find out which tables start with an I, and which tables know about that
+			then we will need to find the artists that were in that era
+				then we can finally delete them
+	
+
+	delete from artworks
+	where artist_id in (
+		select artist_id from artists
+		where era_id in (
+			select era_id from eras
+			where name like 'I%'
+		)
+	);
+	
+	select * from artworks;

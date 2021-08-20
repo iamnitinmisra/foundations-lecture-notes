@@ -1,0 +1,33 @@
+Whats is functional testing?
+	the most standard tests that ensure your app is functional
+	
+What is exploratory testing?
+	running through the application as if you were a user
+	
+What is regression testing?
+	tests to ensure that previously passing test cases still passing
+	
+What is non functional testing?
+	tests to ensure that your site has a good user experience
+
+Whats the name of the testing library we used today?
+	Jest
+	
+What type of environment do you install the Jest library to?
+	dev environment
+
+In terms of Jest, what is a unit test?
+	testing small pieces of an application
+	
+what are the two arguments you need to supply to a jest test function?
+	a description of your test, and a callback function that is the actual test
+	
+should you have more than 1 expect block for any jest test function?
+	no you should not
+	
+what should you use instead if you need to group tests together?
+	a describe block?
+	
+what does bootstrapping a project mean?
+	using a template to create a project
+	

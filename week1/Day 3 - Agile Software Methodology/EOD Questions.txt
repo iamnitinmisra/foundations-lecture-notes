@@ -1,0 +1,26 @@
+1. 	Q. What are some pros to the waterfall methodology
+	A. Easy to explain/understand, allows for strict deadlines, can save time/money, seems like a logical way to build software
+	
+2.	Q. What are some cons for the waterfall methodology
+	A. IT IS NOT FLEXIBLE, generally no feedback from the customer until the product is ready, overly micro-managed
+	
+3.	Q. In the Agile methodology, youll be required to meet with your team at least 1x per day to discuss what you will be 	 working on, what is the name of that meeting?
+	A. Scrum/Stand Ups
+	
+4.	Q. What is test driven development?
+	A. Tests are written first, before any actual programming of the software or feature
+	
+5.	Q. Whats the purpose of planning poker?
+	A. To best estimate the time it will take to finish a feature/application
+	
+6.	Q. What are user stories?
+	A. help determine the type of user the feature/app is being built for
+	   why that feature is wanted
+	   what the feature will be used for
+	   
+7.	Q. Did anyone have any questions from the lab assignment today?
+
+
+8.	Q. Was everyone able to submit their assignment into github
+	A. YES
+	

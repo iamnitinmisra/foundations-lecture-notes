@@ -1,0 +1,68 @@
+// Q: A for loop takes 3 arguments, what must you separate them by?
+// A: a semicolon
+
+
+// Q: let array = [1,2,3,4,5,6,X,8,9], how do i access the value X?
+// A: array[6]
+
+
+// Q: let array = [1,2,3,4,5,6,X,8,9], how can i change the value of X to be 7?
+// A: array.splice(6,1,7)
+
+
+// Q: let alphabet = ['b','c','d','e','f','g'], how can i add an 'a' to the array, while keeping it in alphabetical order?
+// A: alphabet.unshift('a')
+
+
+// Q: let num = alphabet.unshift('a'), is executed on the previous array. what is the value of num?
+// A: its the new length of the array, specifically, it is 7 for the above array
+
+
+for(let i=0; i < 10; i--){
+ console.log(i*i)
+}
+// Q: What is the result of running the above for loop?
+// A: Stack overflow, infinite loop
+
+
+// for(let i=0; i < 10; i++){
+//   console.log(i)
+// }
+// Q: What is the result of running the above for loop?
+// A: console.logs from 0-9
+
+
+for (let i=10; i < 9; i--){
+  console.log(i)
+}
+// Q: What is the result of running the above for loop?
+// A: no output, 'for loop' never runs
+
+
+let num = 7
+num.push(8)
+// Q: what should you expect from the above two lines?
+// A: TypeError: num.push is not a function
+
+
+let numsArr = [1, 2, 3, 4, 5]
+for (let i = 0; i < numsArr.length; i++) {
+  numsArr[i] *= 2
+}
+// Q: what happens when you execute the for loop above?
+// A: each value in nums array is multipled by 2
+
+
+let array1 = [1,2,3,4,5]
+let array2 = array1
+array2.push(6)
+// Q: What do expect the result of console.log(array1)
+// A: [1,2,3,4,5,6]
+
+
+// Q: how would you create a copy of an array that doesnt occupy the same spot in memory?
+A: let array2 = array1.slice()
+
+
+// Q: How often should you switch with your partner in a pair programming session?
+// A: use your own discression but at the most, it should be every code block
